@@ -19,7 +19,7 @@ public class PlayerControls : MonoBehaviour
     float horizontalThrow, verticalThrow;
     void Start()
     {
-
+        
     }
     /* [IF USE INPUT SYSTEM PACKAGE]
     private void OnEnable()
@@ -38,6 +38,7 @@ public class PlayerControls : MonoBehaviour
     {
         ProcessTranslation();
         ProcessRotation();
+        
     }
     private void ProcessRotation()
     {
