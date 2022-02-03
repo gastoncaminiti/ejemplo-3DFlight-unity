@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,11 +17,8 @@ public class PlayerControls : MonoBehaviour
 
     [SerializeField] float controlRollFactor = -20f;
 
+    [SerializeField] GameObject[] lasers;
     float horizontalThrow, verticalThrow;
-    void Start()
-    {
-        
-    }
     /* [IF USE INPUT SYSTEM PACKAGE]
     private void OnEnable()
     {
@@ -38,7 +36,8 @@ public class PlayerControls : MonoBehaviour
     {
         ProcessTranslation();
         ProcessRotation();
-        
+        ProcessFiring();
+
     }
     private void ProcessRotation()
     {
@@ -46,8 +45,8 @@ public class PlayerControls : MonoBehaviour
         float controlPitch = verticalThrow * controlPitchFactor;
 
         float pitch = positionPitch + controlPitch;
-        float yaw   = transform.localPosition.x * positionYawFactor;
-        float roll  = horizontalThrow * controlRollFactor;
+        float yaw = transform.localPosition.x * positionYawFactor;
+        float roll = horizontalThrow * controlRollFactor;
 
         transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
     }
@@ -74,5 +73,29 @@ public class PlayerControls : MonoBehaviour
         Debug.Log(horizontalThrow);
         Debug.Log(verticalThrow);
         */
+    }
+
+    private void ProcessFiring()
+    {
+        if (Input.GetButton("Fire1"))
+        {
+            EnableLasers(true);
+        }
+        else
+        {
+            Debug.Log("I'm NOT Shootting");
+            EnableLasers(false);
+        }
+    }
+
+    private void EnableLasers(bool status)
+    {
+        foreach (GameObject laser in lasers)
+        {
+            //laser.SetActive(status);
+            ParticleSystem.EmissionModule laserSystem = laser.GetComponent<ParticleSystem>().emission;
+            laserSystem.enabled = status;
+
+        }
     }
 }
