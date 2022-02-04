@@ -6,7 +6,8 @@ using UnityEngine;
 public class PlayerControls : MonoBehaviour
 {
     //[SerializeField] InputAction movement; [IF USE INPUT SYSTEM PACKAGES]
-    [SerializeField] float shipSpeed = 30f;
+    [Header("Movement Settings")]
+    [Tooltip("How fast ship move up and down")] [SerializeField] float shipSpeed = 30f;
     [SerializeField] float xRange = 5f;
     [SerializeField] float yRange = 5f;
     // Start is called before the first frame update
