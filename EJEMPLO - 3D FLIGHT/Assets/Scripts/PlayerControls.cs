@@ -7,7 +7,7 @@ public class PlayerControls : MonoBehaviour
 {
     //[SerializeField] InputAction movement; [IF USE INPUT SYSTEM PACKAGES]
     [Header("Movement Settings")]
-    [Tooltip("How fast ship move up and down")] [SerializeField] float shipSpeed = 30f;
+    [Tooltip("How fast ship move up and down")][SerializeField] float shipSpeed = 30f;
     [SerializeField] float xRange = 5f;
     [SerializeField] float yRange = 5f;
     // Start is called before the first frame update
@@ -38,7 +38,6 @@ public class PlayerControls : MonoBehaviour
         ProcessTranslation();
         ProcessRotation();
         ProcessFiring();
-
     }
     private void ProcessRotation()
     {
