@@ -83,7 +83,6 @@ public class PlayerControls : MonoBehaviour
         }
         else
         {
-            Debug.Log("I'm NOT Shootting");
             EnableLasers(false);
         }
     }
