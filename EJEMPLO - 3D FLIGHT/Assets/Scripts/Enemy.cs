@@ -6,14 +6,14 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private GameObject deathVfx;
     [SerializeField] private GameObject hitVfx;
-    [SerializeField] private Transform parent;
     [SerializeField] private int hitScore = 100;
     [SerializeField] private int hitPoints = 300;
-    ScoreBoard scoreBoard;
-
+    private ScoreBoard scoreBoard;
+    private Transform parentGameObject;
     private void Start()
     {
-        scoreBoard = FindObjectOfType<ScoreBoard>();
+        scoreBoard = GameObject.FindObjectOfType<ScoreBoard>();
+        parentGameObject = GameObject.FindWithTag("SpawnRuntime").transform;
     }
     private void OnParticleCollision(GameObject other)
     {
@@ -22,17 +22,23 @@ public class Enemy : MonoBehaviour
         if (hitPoints < 0)
         {
             DestroyEnemy();
-        }else
-        {
-            GameObject newVfx = Instantiate(hitVfx, transform.position, Quaternion.identity);
-            newVfx.transform.parent = parent;
         }
+        else
+        {
+            HitEnemy();
+        }
+    }
+
+    private void HitEnemy()
+    {
+        GameObject newVfx = Instantiate(hitVfx, transform.position, Quaternion.identity);
+        newVfx.transform.parent = parentGameObject;
     }
 
     private void DestroyEnemy()
     {
         GameObject newVfx = Instantiate(deathVfx, transform.position, Quaternion.identity);
-        newVfx.transform.parent = parent;
+        newVfx.transform.parent = parentGameObject;
         Destroy(gameObject);
     }
 }

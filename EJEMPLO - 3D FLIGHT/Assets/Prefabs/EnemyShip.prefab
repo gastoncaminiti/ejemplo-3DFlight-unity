@@ -115,4 +115,4 @@ MonoBehaviour:
   hitVfx: {fileID: 6217030511251887532, guid: 20509a1884fb6bf4e8cb927e219b99f3, type: 3}
   parent: {fileID: 0}
   hitScore: 100
-  hitPoints: 300
+  hitPoints: 500
