@@ -112,5 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathVfx: {fileID: 6217030511251887532, guid: 1546d600a47815b47a76cf9fd2fb7253, type: 3}
+  hitVfx: {fileID: 6217030511251887532, guid: 20509a1884fb6bf4e8cb927e219b99f3, type: 3}
   parent: {fileID: 0}
   hitScore: 100
+  hitPoints: 300
